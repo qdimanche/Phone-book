@@ -13,9 +13,24 @@ export default {
 
     isContactListEmpty(contactList: Array<Contact>):boolean {
         if (contactList) {
-            return false
+            return false;
         }
         return true;
 
-    }
+    },
+    getFavoriteContacts(): Array<Contact> {
+        const favoriteContacts = localStorage.getItem('favoriteContact') as string;
+        const parsedFavoriteContacts = JSON.parse(favoriteContacts);
+        if(this.isFavoriteContactListEmpty(parsedFavoriteContacts)){
+            return [];
+        }
+        return parsedFavoriteContacts;
+    },
+    isFavoriteContactListEmpty(favoriteContacts: Array<Contact>):boolean {
+        if (favoriteContacts) {
+            return false;
+        }
+        return true;
+
+    },
 }

@@ -63,6 +63,7 @@ export default  defineComponent({
   methods: {
     createContact() {
       const contact: Contact = this.formData;
+      console.log(contact);
       return contactCommand.createContact(contact);
     }
   }
